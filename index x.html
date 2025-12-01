@@ -26,7 +26,7 @@
         /* Layouts */
         .side-by-side { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; height: 480px; }
         .left-col { flex: 1; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
-        .right-col { flex: 1.3; display: flex; align-items: center; justify-content: center; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); height: 450px; position: relative; overflow: hidden; }
+        .right-col { flex: 1.3; display: flex; align-items: center; justify-content: center; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); height: 450px; position: relative; }
         .img-full { max-height: 100%; max-width: 100%; object-fit: contain; }
         
         /* Tablas y Utilidades */
@@ -54,13 +54,6 @@
         .exam-list li { margin-bottom: 10px; }
         .interrogatorio-list li { margin-bottom: 15px; font-size: 0.9em; color: #2c3e50; }
         .interrogatorio-list strong { color: #2980b9; }
-
-        /* Zoom específico para la TC */
-        .zoom-img {
-            transform: scale(1.8); /* Zoom al 180% */
-            transform-origin: center;
-            transition: transform 0.3s ease;
-        }
 
     </style>
 </head>
@@ -93,17 +86,19 @@
 
             <section>
                 <h2>Interrogatorio Dirigido</h2>
-                <p style="font-size:0.8em; color:#7f8c8d;"></p>
+                <p style="font-size:0.8em; color:#7f8c8d;">Antes de tocar al paciente, ¿qué preguntamos para confirmar nuestra sospecha?</p>
                 <div class="card">
                     <ul class="interrogatorio-list">
-                        <li class="fragment"><strong>Consultamos sobre la aparición de la disnea, ¿fue súbita?</strong><br></li>
-                        <li class="fragment"><strong>¿Cuáles son las características del dolor, aumenta en inspiración? </strong><br></li>
+			<li class="fragment"><strong>Consultamos sobre la aparición de la disnea, ¿fue súbita?</strong><br></li>
+			<li class="fragment"><strong>¿Cuáles son las características del dolor, aumenta en inspiración? </strong><br></li>
                         <li class="fragment"><strong>¿Tuvo dolor o hinchazón en alguna pierna recientemente?</strong><br></li>
                         <li class="fragment"><strong>¿Ha tenido tos con sangre (hemoptisis)?</strong><br></li>
-                        <li class="fragment"><strong>¿Antecedentes de cáncer o cirugías recientes? ¿De inmovilización?</strong><br></li>
+                        <li class="fragment"><strong>¿Antecedentes de cáncer o cirugías recientes?¿De invmovilización?</strong><br></li>
+			
                     </ul>
                 </div>
             </section>
+
 
             <section>
                 <h2>Examen Físico Dirigido</h2>
@@ -118,9 +113,8 @@
                     </ul>
                 </div>
             </section>
-
-            <section>
-                <h2>Score de Wells (TEP) y Conducta</h2>
+ <section>
+                <h2>Score de Wells y Conducta</h2>
                 <div class="card">
                     <table class="comparison-table">
                         <thead>
@@ -146,19 +140,12 @@
                                 </td>
                                 <td>
                                     <strong style="color:#c0392b;">Alta:</strong> AngioTAC directa.<br>
-                                    <em></em><br><br>
+                                    <em>(Si demora: Anticoagular YA)</em>.<br><br>
                                     <strong style="color:#27ae60;">Baja:</strong> Pedir Dímero D.
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </section>
-
-            <section>
-                <h2>Algoritmo de Sospecha Diagnóstica</h2>
-                <div class="card" style="height: 500px; display:flex; justify-content:center; align-items:center;">
-                    <img src="sospecha tep.jpg" class="img-full" alt="Algoritmo TEP">
                 </div>
             </section>
 
@@ -172,6 +159,8 @@
                 </div>
             </section>
 
+           
+
             <section>
                 <h2>Estudios Complementarios</h2>
                 <div class="side-by-side">
@@ -183,67 +172,9 @@
                             <strong>Eco Doppler Venoso:</strong><br>Confirma la TVP en la pierna.
                         </div>
                     </div>
-                    <div class="right-col" style="background:black; flex-direction: column; gap: 10px; overflow: hidden;">
-                        <img src="tep_angiotc.jpg" class="zoom-img" style="height: 48%; width: auto; object-fit:contain;" alt="AngioTAC TEP">
-                        <img src="tvp_pierna.jpg" style="height: 48%; width: auto; object-fit:contain; z-index: 2;" alt="TVP Pierna">
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Score de Wells para TVP</h2>
-                <p style="font-size:0.7em;">Probabilidad de Trombosis Venosa Profunda</p>
-                <div class="card">
-                    <table class="comparison-table" style="font-size: 0.55em;">
-                        <thead>
-                            <tr>
-                                <th>Criterio Clínico (+1 punto c/u)</th>
-                                <th>Puntaje</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Cáncer activo (o en tto últimos 6 meses)</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Parálisis, paresia o inmovilización reciente de MMII</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Encamamiento reciente >3 días o cirugía mayor (<4 sem)</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Hipersensibilidad localizada en trayecto venoso profundo</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Edema de todo el miembro inferior</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Edema pantorrilla >3 cm (vs lado asintomático)</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Edema con fóvea (mayor en lado sintomático)</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr>
-                                <td>Venas superficiales colaterales (no varicosas)</td>
-                                <td>+1</td>
-                            </tr>
-                            <tr style="background-color: #fadbd8;">
-                                <td><strong>Diagnóstico alternativo más probable que TVP</strong></td>
-                                <td><strong>-2</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="highlight-box" style="margin-top:5px; font-size: 0.6em;">
-                        <strong>Interpretación:</strong><br>
-                        • <strong>≥ 2 puntos:</strong> TVP Probable → Eco Doppler.<br>
-                        • <strong>< 2 puntos:</strong> TVP Improbable → Dímero D.
+                    <div class="right-col" style="background:black; flex-direction: column; gap: 10px;">
+                        <img src="tep_angiotc.jpg" style="height: 48%; width: auto; object-fit:contain;" alt="AngioTAC TEP">
+                        <img src="tvp_pierna.jpg" style="height: 48%; width: auto; object-fit:contain;" alt="TVP Pierna">
                     </div>
                 </div>
             </section>
@@ -289,8 +220,9 @@
                         <li class="fragment"><strong>¿Toma alcohol? ¿Cuánto? ¿Café, mate, fumas?</strong><br></li>
                         <li class="fragment"><strong>¿Tomó aspirina o AINEs recientemente?</strong><br></li>
                         <li class="fragment"><strong>¿Tuvo vómitos violentos previos a la sangre?</strong><br></li>
-                        <li class="fragment"><strong>¿Tenes hambre o comer te genera dolor?</strong><br></li>
-                        <li class="fragment"><strong>¿Cuánta sangre vomitaste? ¿De qué color era?</strong><br> ¿Alivió el dolor vomitar?</li>
+			<li class="fragment"><strong>¿Tenes hambre o comer te genera dolor?</strong><br></li>
+			<li class="fragment"><strong>¿Cuánta sangre vomitaste? ¿De qué color era?</strong><br> ¿Alivió el dolor vomitar?</li>
+
                     </ul>
                 </div>
             </section>
@@ -299,8 +231,9 @@
                 <h2>Examen Físico Dirigido</h2>
                 <div class="card">
                     <ul class="exam-list">
+                       
                         <li class="fragment"><strong>Piel y Mucosas:</strong> Palidez generalizada, sudoración fría.</li>
-                        <li class="fragment"><strong>Signos Vitales:</strong> Hipotensión (TA 90/60), Taquicardia (FC 120). <span class="important">¿Shock?</span></li>
+ <li class="fragment"><strong>Signos Vitales:</strong> Hipotensión (TA 90/60), Taquicardia (FC 120). <span class="important">¿Shock?</span></li>
                         <li class="fragment"><strong>Abdomen:</strong> Dolor en epigastrio a la percusión suave. Auscultación: RHA pueden ser normales, aumentados o disminuidos dependindo el cuadro. Buscar estigmas hepáticos (dx dif).</li>
                         <li class="fragment"><strong>Tacto Rectal:</strong> Fundamental para confirmar Melena.</li>
                     </ul>
@@ -376,7 +309,8 @@
                         <span class="box-title">☠️ Error a evitar</span>
                         <ul>
                             <li>No hacer tacto rectal.</li>
-                            <li>Ignorar disminución de RHA, abd en tabla, dolor difuso e intenso. <strong>Signos de perforación</strong> </li>
+	                            <li>Ignorar disminución de RHA, abd en tabla, dolor difuso e intenso. <strong>Signos de perforación</strong> </li>
+
                         </ul>
                     </div>
                 </div>
@@ -402,7 +336,8 @@
                     <ul class="interrogatorio-list">
                         <li class="fragment"><strong>¿Dónde empezó el dolor y hacia dónde se movió?</strong><br>(Buscando la cronología de Murphy).</li>
                         <li class="fragment"><strong>¿Primero vino el dolor o los vómitos? </strong><br>¿Te duele toser?</li>
-                        <li class="fragment"><strong>¿Tuviste fiebre? </strong><br></li>
+	<li class="fragment"><strong>¿Tuviste fiebre? </strong><br></li>
+
                         <li class="fragment"><strong>¿Fecha de última menstruación?</strong><br>(Descartar embarazo ectópico siempre).</li>
                     </ul>
                 </div>
@@ -410,19 +345,15 @@
 
             <section>
                 <h2>Examen Físico Dirigido</h2>
-                <div class="side-by-side">
-                    <div class="left-col" style="flex: 1.5;">
-                        <ul class="exam-list" style="font-size: 0.7em;">
-                            <li class="fragment"><strong>Inspección:</strong> Paciente <strong>inmóvil</strong>. Facies de dolor.</li>
-                            <li class="fragment"><strong>Auscultación:</strong> RHA pasan de normales → disminuidos → abolidos.</li>
-                            <li class="fragment"><strong>Palpación:</strong> Defensa = contracción refleja. Tabla = contractura rígida.</li>
-                            <li class="fragment"><strong>Maniobras:</strong> Rebote = Blumberg (+), McBurney (+)</li>
-                            <li class="fragment"><strong>Dolor:</strong> Visceral sordo → Somático intenso.</li>
-                        </ul>
-                    </div>
-                    <div class="right-col" style="background: white;">
-                        <img src="puntos abd.jpg" class="img-full" alt="Puntos Dolorosos Abdomen">
-                    </div>
+                <div class="card">
+                    <ul class="exam-list">
+                        <li class="fragment"><strong>Inspección:</strong> Paciente <strong>inmóvil</strong> (el movimiento y toser le aumenta el dolor). Facies de dolor.</li>
+                        <li class="fragment"><strong>Auscultación:</strong> RHA pasan de normales → disminuidos → abolidos (no complicada → irritación peritoneal → perforación). </li>
+                        <li class="fragment"><strong>Palpación:</strong> Defensa = contracción voluntaria refleja al dolor. Tabla = contractura involuntaria y rígida → ¡PERITONITIS!</li>
+                        <li class="fragment"><strong>Maniobras:</strong> Rebote = Blumberg (+), McBurney (+)</li>
+		<li class="fragment"><strong>Dolor:</strong> Visceral sordo y mal localizado. Somático intenso, punzante, con espasmo abdominal.</li>
+
+                    </ul>
                 </div>
             </section>
 
@@ -431,6 +362,7 @@
                     <p>"¿Qué indica la tétrada: Dolor somático + Defensa + Rebote + Silencio Auscultatorio?"</p>
                     <div class="fragment highlight-box success" style="background:white; border:none; margin-top:20px;">
                         IRRITACIÓN PERITONEAL (Peritonitis)
+
                     </div>
                 </div>
             </section>
@@ -438,10 +370,11 @@
             <section>
                 <h2>La Cronología de Murphy</h2>
                 <div class="card" style="background: #eaf2f8; border-left: 5px solid #3498db;">
+                    
                     <ol>
                         <li><strong>Dolor Visceral:</strong> Comienza difuso, mal localizado, usualmente en epigastrio o periumbilical.</li>
                         <li><strong>Síntomas:</strong> Náuseas/Vómitos que siguieron a la aparición del dolor.</li>
-                        <li><strong>Dolor Parietal:</strong> El dolor baja y se localiza en FID, volviéndose somático, punzante, que empeora con movimiento.</li>
+                        <li><strong>Dolor Parietal:</strong> El dolor baja y se localiza en FID, volviéndose somático, punzante, que empeora con movimiento, tos o saltos. </li>
                     </ol>
                     <div class="fragment highlight-box important" style="margin-top:15px; border-left-color: #c0392b; background-color: #fadbd8;">
                         <strong>¡OJO!</strong> Si el dolor NO está en FID, <strong>todavía puede ser apéndice</strong>. Depende de dónde esté.
@@ -513,9 +446,9 @@
                     <div class="left-col">
                         <div class="caption-card">
                             <strong></strong><br>
-                            Eco = primera elección. (op dependiente)
+Eco = primera elección. (op dependiente)
                             Rx = complicaciones.
-                            <strong></strong> TC = confirmatoria o ante dudas/complicaciones
+ <strong></strong> TC = confirmatoria o ante dudas/complicaciones
                         </div>
                     </div>
                 </div>
@@ -561,6 +494,7 @@
                         <li class="fragment"><strong>¿Ganaste peso?</strong><br></li>
                         <li class="fragment"><strong>¿Cambios en la voz, sequedad de piel o caída del cabello?</strong><br></li>
                         <li class="fragment"><strong>¿Tenes problemas para concentrarte o para recordar?</strong><br></li>
+
                         <li class="fragment"><strong>¿Antecedentes de tiroides en la familia?</strong><br></li>
                     </ul>
                 </div>
@@ -568,19 +502,15 @@
 
             <section>
                 <h2>Examen Físico Dirigido</h2>
-                <div class="side-by-side">
-                    <div class="left-col">
-                        <ul class="exam-list" style="font-size: 0.7em;">
-                            <li class="fragment"><strong>Facies:</strong> Abotagada, pálida, edema palpebral.</li>
-                            <li class="fragment"><strong>Palpación:</strong> Hipertrofia tiroidea.</li>
-                            <li class="fragment"><strong>Piel y Faneras:</strong> Piel seca, fría, áspera. Pelo quebradizo. Pérdida de cola de cejas.</li>
-                            <li class="fragment"><strong>CV:</strong> Bradicardia relativa.</li>
-                            <li class="fragment"><strong>Neuro:</strong> Reflejos osteotendinosos con fase de relajación lenta.</li>
-                        </ul>
-                    </div>
-                    <div class="right-col" style="background:white;">
-                        <img src="hipot.jpg" class="img-full" alt="Cuadro Hipotiroidismo">
-                    </div>
+                <div class="card">
+                    <ul class="exam-list">
+                        <li class="fragment"><strong>Facies:</strong> Abotagada, pálida, edema palpebral.</li>
+                        <li class="fragment"><strong>Palpación:</strong> Hipertrofia tiroidea.</li>
+
+                        <li class="fragment"><strong>Piel y Faneras:</strong> Piel seca, fría, áspera. Pelo quebradizo. Pérdida de cola de cejas.</li>
+                        <li class="fragment"><strong>CV:</strong> Bradicardia relativa.</li>
+                        <li class="fragment"><strong>Neuro:</strong> Reflejos osteotendinosos con fase de relajación lenta.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -603,7 +533,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Ciclo</strong></td>
-                                <td>Ciclos: Hipermenorrea 1º Oligo/amenorrea 2º.</td>
+                                <td>Ciclos: Primario Hipermenorrea; Central Oligo/amenorrea.</td>
                                 <td>Oligo-anovulación. INFERTILIDAD</td>
                             </tr>
                             <tr>
@@ -625,7 +555,7 @@
                     </div>
                     <div class="highlight-box" style="text-align: center; background-color: #fadbd8; border-left-color: #c0392b;">
                         <strong>TSH Baja/Normal + T4 Libre Baja</strong><br>
-                        👉 <strong>Hipotiroidismo CENTRAL</strong> (Falla hipófisis2º/hipotálamo3º).
+                        👉 <strong>Hipotiroidismo CENTRAL</strong> (Falla hipófisis 2º / hipotálamo 3º).
                     </div>
                 </div>
             </section>
@@ -710,15 +640,13 @@
                         Matidez Desplazable
                     </div>
                 </div>
-                <div style="margin-top: 20px; display: flex; justify-content: center;">
-                    <img src="maniobras ascitis.jpg" style="max-height: 250px; border-radius: 10px;" alt="Maniobras Ascitis">
-                </div>
             </section>
 
             <section>
                 <h2>Paracentesis y el GASA</h2>
                 <div class="card">
                     <p>GASA = Albúmina Suero - Albúmina Ascitis</p>
+                    
                     <table class="comparison-table" style="margin-top:20px;">
                         <thead>
                             <tr>
@@ -783,8 +711,7 @@
                 </div>
             </section>
         </section>
-
-        <section>
+<section>
             <h2>📲 Juguemos con casos </h2>
             <div class="side-by-side" style="height:auto;">
                 <div class="left-col">
@@ -796,15 +723,19 @@
                             </a>
                         </p>
                         <p style="font-size:0.8em;">
-                            Un par de casos clínicos para terminar
+                            Un par de casos clínicos para practicar en casa                         </p>
+                        <p style="font-size:0.8em; margin-top:10px;">
                         </p>
                     </div>
                 </div>
                 <div class="right-col" style="height:320px;">
+                   
                     <img src="qr_repsemio.png" alt="QR repsemio.netlify.app" class="img-full">
                 </div>
             </div>
         </section>
+
+
 
         <section data-background-color="#2c3e50">
             <h2 style="color:#f1c40f; border-bottom: none;">Para llevar a casa...</h2>
